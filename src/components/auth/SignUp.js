@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {Form, Segment, Button, Message, Input} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {registerUser} from "../../redux/actions/authActions";
@@ -13,7 +13,11 @@ class SignUp extends Component {
         password2: '',
         errors: {}
     };
-
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/");
+        }
+    }
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.errors !== prevState.errors) {
             return {errors: nextProps.errors};
@@ -93,7 +97,7 @@ class SignUp extends Component {
                             </Form.Field>
                             <Form.Field onChange={this.onChange} required>
                                 <label>Confirm Password</label>
-                                <Input icon="key" iconPosition="left" onChange={this.onChange} name="password2"
+                                <Input  icon="key" iconPosition="left" onChange={this.onChange} name="password2"
                                        placeholder="Confirm Your Password"
                                        value={this.state.password2} type="password"/>
                                 {errors.password2 ? <Message
