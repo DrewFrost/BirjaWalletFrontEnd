@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Run with backend
+1. Clone backend and frontend repos in one dir.
+2. In backend dir run 
+```$xslt
+npm install
+npm run dev
+```
+Now backend runs with frontend
+
 ## Available Scripts
 
 In the project directory, you can run:
