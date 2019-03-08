@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Form, Button, Segment, Icon} from "semantic-ui-react";
+import {Form, Button, Segment, Icon, Input} from "semantic-ui-react";
 
 class SignIn extends Component {
     render() {
@@ -10,21 +10,15 @@ class SignIn extends Component {
                         <Form>
                             <Form.Field>
                                 <label>First Name</label>
-                                <div className="ui left icon input">
-                                    <i className="user icon"/>
-                                    <input placeholder='First Name'/>
-                                </div>
+                                    <Input icon="user" iconPosition="left" placeholder='First Name'/>
                             </Form.Field>
                             <Form.Field>
                                 <label>Password</label>
-                                <div className="ui left icon input">
-                                    <i className="key icon"/>
-                                    <input type="password" placeholder='Last Name'/>
-                                </div>
+                                    <Input icon="key" iconPosition="left" type="password" placeholder='Last Name'/>
                             </Form.Field>
-                            <Button type="submit" icon labelPosition='right'>
+                            <Button type="submit" icon labelPosition="right">
                                 Sign In
-                                <Icon name='sign in' />
+                                <Icon name="sign in" />
                             </Button>
                         </Form>
                     </Segment>
