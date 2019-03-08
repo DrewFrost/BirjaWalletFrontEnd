@@ -3,6 +3,8 @@
 #IDE
 .idea
 
+semantic
+
 # dependencies
 /node_modules
 /.pnp
