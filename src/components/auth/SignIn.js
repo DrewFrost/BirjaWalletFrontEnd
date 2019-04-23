@@ -13,8 +13,14 @@ class SignIn extends Component {
     };
 
     componentDidMount() {
-        if (this.props.auth.isAuthenticated) {
-            this.props.history.push("/");
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/wallet");
+        }
+    }
+    componentDidUpdate() {
+        const {isAuthenticated} = this.props.auth;
+        if (isAuthenticated) {
+            this.props.history.push("/wallet");
         }
     }
 
@@ -24,11 +30,6 @@ class SignIn extends Component {
         } else return null;
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.errors !== prevState.errors) {
-            this.setState({errors: prevProps.errors});
-        }
-    }
 
     onChange = e => {
         this.setState({

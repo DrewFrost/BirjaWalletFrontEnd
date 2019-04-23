@@ -3,9 +3,10 @@ import jwt_decode from 'jwt-decode';
 import {GET_ERRORS, SET_CURRENT_USER} from "./types";
 import setAuthToken from '../../utils/setAuthToken';
 
-export const registerUser = (userData) => async dispatch => {
+export const registerUser = (userData, history) => async dispatch => {
     try {
         await axios.post('/api/users/register', userData);
+        history.push('/signin');
     } catch (err) {
         dispatch({
             type: GET_ERRORS,
@@ -14,7 +15,7 @@ export const registerUser = (userData) => async dispatch => {
     }
 };
 
-export const loginUser = (userData) => async dispatch => {
+export const loginUser = (userData, history) => async dispatch => {
     try {
         const res = await axios.post('/api/users/login', userData);
         //Save to local storage
